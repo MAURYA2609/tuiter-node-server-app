@@ -25,7 +25,22 @@ const AuthController = (app) => {
             res.sendStatus(404);
         }
     };
-
+    const update = async (req, res) => {
+        const currentUser = currentUserVar;
+        if (!currentUser) {
+          res.sendStatus(404);
+          return;
+        }
+      
+        try {
+          const updatedUser = await usersDao.updateUser(currentUser._id, req.body);
+          currentUserVar = updatedUser;
+          res.json(updatedUser);
+        } catch (error) {
+          res.sendStatus(500);
+        }
+      };
+        
     const profile = async (req, res) => {
         const currentUser = currentUserVar
         if (!currentUser) {
@@ -40,7 +55,7 @@ const AuthController = (app) => {
         res.sendStatus(200);
     };
 
-    const update = (req, res) => { };
+    
 
 
     app.post("/api/users/register", register);

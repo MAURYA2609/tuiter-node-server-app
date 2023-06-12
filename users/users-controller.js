@@ -21,7 +21,7 @@ const findUserById = (req, res) => {
     const user = users
       .find(u => u._id === userId);
     res.json(user);
-};  
+};   
 const createUser = (req, res) => {
     const newUser = req.body;
     newUser._id = (new Date()).getTime() + '';
