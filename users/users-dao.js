@@ -22,7 +22,10 @@ export const findUserByCredentials = (username, password) => {
   return null;
 };
 
-export const createUser = (user) => users.push(user);
+export const createUser = (user) => {
+    users.push(user);
+    return user;
+}
 
 export const updateUser = (uid, user) => {
   const index = users.findIndex((u) => u._id === uid);

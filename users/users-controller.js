@@ -43,4 +43,5 @@ const createUser = (req, res) => {
     );
     res.sendStatus(200);
    };       
+   
 export default UserController;
