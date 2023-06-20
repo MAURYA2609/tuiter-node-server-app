@@ -1,0 +1,113 @@
+[
+  {
+    "_id": 123,
+    "topic": "Space",
+    "userName": "SpaceX",
+    "title": "Tesla CyberTruck lands on Mars and picks up the Curiosity rover on its 6' bed",
+    "time": "2h",
+    "image": "tesla.jpg",
+    "liked": false,
+    "unliked": false,
+    "replies": 123,
+    "retuits": 432,
+    "likes": 25,
+    "dislikes": 10,
+    "handle": "@spacex",
+    "tuit": "You want to wake up in the morning and think the future is going to be great - and that's what being a spacefaring civilization is all about. It's about believing in the future and thinking that the future will be better than the past. And I can't think of anything more exciting than going out there and being among the stars"
+  },
+  {
+    "_id": 234,
+    "topic": "Space",
+    "userName": "SpaceX",
+    "title": "100s of SpaceX Starships land on Mars after a 6 month journey. 1000s of Martian colonists being building Mars Base 1",
+    "time": "2h",
+    "image": "emma.jpg",
+    "liked": true,
+    "unliked": false,
+    "replies": 111,
+    "retuits": 222,
+    "likes": 33,
+    "dislikes": 10,
+    "handle": "@spacex",
+    "tuit": "It's about believing in the future and thinking that the future will be better than the past. And I can't think of anything more exciting than going out there and being among the stars. You want to wake up in the morning and think the future is going to be great - and that's what being a spacefaring civilization is all about."
+  },
+  {
+    "_id": 345,
+    "topic": "Energy",
+    "userName": "Tesla",
+    "title": "Tesla FSD finally makes driving obsolete. After years of delay, Tesla Full Self Driving can drive you to work while you work, play, or sleep",
+    "time": "4d",
+    "image": "maurya.jpg",
+    "liked": false,
+    "unliked": false,
+    "replies": 902,
+    "retuits": 11,
+    "likes": 29,
+    "dislikes": 10,
+    "handle": "@tesla",
+    "tuit": "And that's what being a spacefaring civilization is all about. It's about believing in the future and thinking that the future will be better than the past. And I can't think of anything more exciting than going out there and being among the stars"
+  },
+  {
+    "_id": 456,
+    "topic": "Space",
+    "userName": "SpaceX",
+    "handle": "@spacex",
+    "time": "2h",
+    "image": "sq.jpeg",
+    "title": "SpaceX's Mission",
+    "liked": true,
+    "unliked": false,
+    "likes": 2345,
+    "replies": 123,
+    "dislikes": 10,
+    "retuits": 432,
+    "tuit": "You want to wake up in the morning and think the future is going to be great - and that’s what being a spacefaring civilization is all about. It’s about believing in the future and thinking that the future will be better than the past. And I can’t think of anything more exciting than going out there and being among the stars"
+  },
+  {
+    "_id": 789,
+    "topic": "Traffic",
+    "userName": "The Boring Company",
+    "handle": "@boringcompany",
+    "time": "2h",
+    "image": "signal.png",
+    "liked": true,
+    "unliked": false,
+    "likes": 2345,
+    "dislikes": 10,
+    "replies": 321,
+    "retuits": 432,
+    "title": "The Boring Company fixing traffic",
+    "tuit": "The Boring Company (TBC) is an American infrastructure and tunnel construction services company founded by Elon Musk. Its ongoing and proposed projects are designed for intra-city ('loop') transit systems."
+  },
+  {
+    "_id": 12,
+    "topic": "Brain Injuries",
+    "userName": "Neurolink",
+    "handle": "@neurolink",
+    "time": "3h",
+    "image": "utube.jpg",
+    "title": "Neurolink fixes paralisis and blindness",
+    "tuit": "Neurolink is an American company founded by Elon Musk that specializes in brain to computer integration. The first application will be to cure spinal cord injuries so that paraplegics can walk again. Other applications include curing blindness and mental disorders.",
+    "liked": true,
+    "unliked": false,
+    "likes": 3456,
+    "dislikes": 10,
+    "replies": 345,
+    "retuits": 654
+  },
+  {
+    "tuit": "Tesla stock falls below 200",
+    "likes": 0,
+    "liked": false
+  },
+  {
+    "tuit": "Starlink likely to go public",
+    "likes": 42069,
+    "liked": true
+  },
+  {
+    "tuit": "Model Y is most American made car",
+    "likes": 69420,
+    "liked": true
+  }
+]
