@@ -1,50 +1,57 @@
-import express from "express"
-import HelloController from "./controllers/hello-controller.js"
-import UserController from "./users/users-controller.js"
-import TuitsController from "./controllers/tuits/tuits-controller.js";
-import cors from "cors"
+import express from 'express';
 import session from "express-session";
+import cors from 'cors';
+import HelloController from "./controllers/hello-controller.js";
+import UserController from "./users/users-controller.js";
+import TuitsController from "./controllers/tuits/tuits-controller.js";
 import AuthController from "./users/auth-controller.js";
 import mongoose from "mongoose";
 
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb+srv://maurya:maurya2609@cluster0.tfc9wmb.mongodb.net/tuiter'
-mongoose.connect(CONNECTION_STRING);
-
 const app = express();
- 
 app.use(
-  cors({
-    credentials: true,
-    origin: "https://a5-inspiring-chebakia-8d7ba0.netlify.app",
-    methods: ["GET", "POST","PUT","DELETE"]
-  })
- );
- app.use(function (req, res, next) {
-  res.header(
-      "Access-Control-Allow-Origin",
-      "https://a5-inspiring-chebakia-8d7ba0.netlify.app"
-  );
-  res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, POST, DELETE, PATCH, OPTIONS");
+    session({
+      secret: "any string",
+      resave: false,
+      proxy: true,
+      saveUninitialized: false,
+      cookie: {
+        sameSite: "none",
+        secure: true
+      }
+    })
+);    
+
+app.use((req, res, next) => {
+  const allowedOrigins = ["http://localhost:3000","https://a5-inspiring-chebakia-8d7ba0.netlify.app"];
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+      res.header("Access-Control-Allow-Origin", origin);
+  }
+
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, PATCH, OPTIONS");
   res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Cache-Control", "no-cache, no-store, must-revalidate");
   next();
 });
 
+app.use(express.json());
 
-app.get("/hello", (req, res) => {
-  res.send("Hello World how are you! I'm awesome");
+// mongoose.connect("mongodb://127.0.0.1:27017/tuiter");
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb+srv://maurya:maurya2609@cluster0.tfc9wmb.mongodb.net/tuiter';
+mongoose.connect(CONNECTION_STRING)
+.then(() => {
+  console.log("Connected");
+})
+.catch((error) => {
+  console.log("Error connecting to MongoDB", error);
 });
 
-app.get("/hello/:name", (req, res) => {
-  res.send(`Hello ${req.params.name}`);
-});
-
-app.use(express.json())
-AuthController(app)
 TuitsController(app);
-HelloController(app)
-UserController(app)
+HelloController(app);
+UserController(app);
+AuthController(app);
+
 app.listen(process.env.PORT || 4000);
+
