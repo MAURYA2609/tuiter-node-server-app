@@ -7,6 +7,8 @@ import TuitsController from "./controllers/tuits/tuits-controller.js";
 import AuthController from "./users/auth-controller.js";
 import mongoose from "mongoose";
 
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter';
+
 const app = express();
 app.use(
     session({
@@ -22,7 +24,7 @@ app.use(
 );    
 
 app.use((req, res, next) => {
-  const allowedOrigins = ["http://localhost:3000","https://a6-dazzling-baklava-83419b.netlify.app/",
+  const allowedOrigins = ["http://localhost:3000","https://a6-dazzling-baklava-83419b.netlify.app",
 "https://tuiter-node-server-app-a6-zsdf.onrender.com"];
   const origin = req.headers.origin;
 
@@ -39,8 +41,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// mongoose.connect("mongodb://127.0.0.1:27017/tuiter");
-const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb+srv://maurya:maurya2609@cluster0.tfc9wmb.mongodb.net/tuiter';
 mongoose.connect(CONNECTION_STRING)
 .then(() => {
   console.log("Connected");
